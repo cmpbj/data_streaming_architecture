@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  producer:
+    build: ./producer
+    environment:
+      - BOOTSTRAP_SERVERS=${BOOTSTRAP_SERVERS}
+      - SASL_USERNAME=${SASL_USERNAME}
+      - SASL_PASSWORD=${SASL_PASSWORD}
+      - TOPIC=${TOPIC}
+      - PRODUCER_ID=${PRODUCER_ID}
+    deploy:
+      replicas: 15
+
+  consumer:
+    build: ./consumer
+    environment:
+      - BOOTSTRAP_SERVERS=${BOOTSTRAP_SERVERS}
+      - SASL_USERNAME=${SASL_USERNAME}
+      - SASL_PASSWORD=${SASL_PASSWORD}
+      - TOPIC=${TOPIC}
+      - TENANT_ID=${TENANT_ID}
+      - CLIENT_ID=${CLIENT_ID}
+      - CLIENT_SECRET=${CLIENT_SECRET}
+    volumes:
+      - ./data:/app/data

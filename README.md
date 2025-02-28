@@ -80,7 +80,7 @@ def gold_content_search():
     return silver_df.groupBy("id").agg(count("content_search").alias("total_search"))
 ```
 
-![](dlt-test-video.gif)
+![](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjB4N3huanpzZWZnaWtpYnNmZGw1amhpbW1obDdjZDgzYzN1MmlrdiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/w5qT1db5GVGDbEfNyB/giphy.gif)
 
 ## Requirements
 - Docker
